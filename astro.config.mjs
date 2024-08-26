@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config';
 import cloudflare from "@astrojs/cloudflare";
-import preact from "@astrojs/preact";
 import tailwind from "@astrojs/tailwind";
 
 import icon from "astro-icon";
@@ -12,7 +11,8 @@ export default defineConfig({
   adapter: cloudflare({
     platformProxy: {
       enabled: true
-    }
+    },
+    imageService: 'passthrough'
   }),
-  integrations: [preact(), tailwind(), icon()]
+  integrations: [tailwind(), icon()]
 });

@@ -1,10 +1,4 @@
-import { Client, EmbedBuilder, Events, GatewayIntentBits, } from "discord.js";
-const token = import.meta.env.DISCORD_TOKEN;
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
-client.once(Events.ClientReady, () => {
-    console.log(`Sending message...`);
-});
-
+import { Resend } from 'resend';
 export async function POST({ request }) {
     try {
         const data = await request.formData();
@@ -18,34 +12,13 @@ export async function POST({ request }) {
                 headers,
             });
         }
-        const contactEmbed = new EmbedBuilder()
-            .setColor("#008080")
-            .setTitle("Contact request on barab.me")
-            .setAuthor({
-                name: "barab",
-                iconURL: "https://barab.me/barab_logo_fox.png",
-                url: "https://barab.me",
-            })
-            .addFields(
-                { name: "Message", value: `${message} \n` },
-                { name: "\u200B", value: "\u200B" },)
-            .setTimestamp()
-            .setFooter({
-                text: request.url,
-            });
-        if (email) {
-            contactEmbed.addFields(
-                {
-                    name: "Mail",
-                    value:
-                        `${email} \n \n [**Répondre**](https://barab.me/mail/${email}) \n`,
-                },
-            );
-        }
-        client.login(token);
-		const user = await client.users.fetch(import.meta.env.USER_ID);
-        user.send({ embeds: [contactEmbed] });
-
+        const resend = new Resend(import.meta.env.RESEND_KEY);
+        await resend.emails.send({
+            from: 'barab.me',
+            to: import.meta.env.EMAIL_TO,
+            subject: 'Contact request on barab.me',
+            html: `<p>${message}</p><p>From: ${email ? email : ""}</p>`,
+        });
         const headers = new Headers();
         headers.set("location", "/thanks-for-contact");
         return new Response(null, {
