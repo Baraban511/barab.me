@@ -12,7 +12,13 @@ export default defineConfig({
     platformProxy: {
       enabled: true
     },
-    imageService: 'passthrough'
+    imageService: 'passthrough',
+
   }),
+  vite: {
+    build: {
+      minify: false,
+    },
+  },
   integrations: [tailwind(), icon()]
 });
