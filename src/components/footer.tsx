@@ -60,12 +60,16 @@ export default function Footer() {
 
         <div class='flex items-center justify-start'><a
           href="https://github.com/Baraban511"
-          class="inline-block hover:text-[#008080]"
+          class="flex hover:text-[#008080] items-center"
           aria-label="GitHub"
-        ></a><iframe src="https://github.com/sponsors/Baraban511/button" title="Sponsor barab" height="32" width="114" class="ml-3 rounded-md"></iframe></div>
+        ><span class="icon-[tabler--brand-github] w-6 h-6"></span></a><iframe src="https://github.com/sponsors/Baraban511/button" title="Sponsor barab" height="32" width="114" class="ml-3 rounded-md"></iframe></div>
 
       </div>
-      <div class="text-gray-500 space-y-2">
+      <div class="text-gray-500 space-y-2 flex flex-col">
+      <span class="icon-[tabler--xbox-a] hover:text-[#008080] w-6 h-6"></span>
+      <span class="icon-[tabler--xbox-b] hover:text-[#008080] w-6 h-6"></span>
+      <span class="icon-[tabler--xbox-x] hover:text-[#008080] w-6 h-6"></span>
+      <span class="icon-[tabler--xbox-y] hover:text-[#008080] w-6 h-6"></span>
       </div>
     </div>
   );

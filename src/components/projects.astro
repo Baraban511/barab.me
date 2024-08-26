@@ -1,0 +1,108 @@
+---
+import { Icon } from "astro-icon/components";
+const projects = [
+    {
+        icon: "tabler:database",
+        title: "CO internship",
+        description:
+            "A small project made to discover React during an one week internship.",
+        build: [
+            "tabler:brand-react",
+            "tabler:brand-tailwind",
+            "tabler:brand-cloudflare",
+            "tabler:brand-github-copilot",
+        ],
+        link: "https://data.barab.live",
+    },
+    {
+        icon: "tabler:calendar-code",
+        title: "taquin",
+        description:
+            "A website to export your EcoleDirecte schedule to your calendar app with updates and more. <strong>New version available !</strong>",
+        build: [
+            "tabler:brand-svelte",
+            "tabler:brand-tailwind",
+            "tabler:brand-vite",
+            "tabler:brand-tabler",
+            "tabler:brand-cloudflare",
+        ],
+        link: "https://taquin.tech",
+    },
+    {
+        icon: "tabler:brand-astro",
+        title: "This site",
+        description:
+            "A simple portfolio coded by me, but with big lacks of design.",
+        build: [
+            "tabler:brand-astro",
+            "tabler:brand-tailwind",
+            "tabler:brand-tabler",
+            "tabler:brand-github-copilot",
+            "tabler:brand-cloudflare",
+        ],
+    },
+];
+const skills = [
+    "tabler:brand-html5",
+    "tabler:brand-javascript",
+    "tabler:brand-bulma",
+    "tabler:brand-nodejs",
+    "tabler:brand-npm",
+    "tabler:brand-debian",
+    "tabler:brand-deno",
+    "tabler:brand-vscode",
+    "tabler:brand-spotify",
+    "tabler:lemon-2",
+];
+---
+
+<div class="flex flex-col md:flex-row gap-8 bg-[#fbffee] p-8">
+    {
+        projects.map((project) => {
+            return (
+                <div class=" flex-1 space-y-2 hover:shadow-md hover:shadow-[#008080] p-3 transition ease-in-out duration-300 rounded-md">
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-[#008080] inline-block p-3 rounded-full text-white">
+                            <Icon name={project.icon} class="w-10 h-10" />
+                        </div>
+                        <h2 class="text-2xl font-bold">{project.title}</h2>
+                    </div>
+                    <Fragment class="text-xl" set:html={project.description} />
+                    {project.build ? (
+                        <h3 class="text-lg font-semibold">Made using</h3>
+                    ) : null}
+                    {project.build && (
+                        <div class="flex flex-wrap">
+                            {project.build.map((icon) => (
+                                <div class="m-1">
+                                    <Icon
+                                        name={icon}
+                                        class="hover:text-[#008080] w-6 h-6"
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                    {project.link && (
+                        <a class="block" href={project.link}>
+                            <p class="text-gray-500 cursor-pointer hover:text-[#008080] inline-flex items-center group">
+                                See
+                                <Icon
+                                    name="tabler:chevron-right"
+                                    class="inline-block w-5 h-5 transition group-hover:translate-x-0.5"
+                                    aria-hidden="true"
+                                />
+                            </p>
+                        </a>
+                    )}
+                </div>
+            );
+        })
+    }
+</div>
+<div class="text-center w-full">
+    <p class="text-2xl font-bold px-2">I've also used or I'm still using:</p>
+    <div class="flex flex-wrap items-center justify-center m-4 gap-4">
+        {skills.map((skill) => <Icon name={skill} class="hover:text-[#008080] w-6 h-6"/>)}
+    </div>
+</div>

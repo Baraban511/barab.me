@@ -1,6 +1,7 @@
 ---
 import Header from "../components/header.tsx";
 import Footer from "../components/footer.tsx";
+const { title } = Astro.props;
 ---
 
 <html lang="en">
@@ -9,7 +10,7 @@ import Footer from "../components/footer.tsx";
 		<link rel="stylesheet" href="/styles.css" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<title>barab.</title>
+		<title>barab.{title ? " - " + title : ""}</title>
 		<meta name="title" content="barab. - Developer" />
 		<meta
 			name="description"
@@ -19,8 +20,7 @@ import Footer from "../components/footer.tsx";
 	</head>
 	<body class="bg-[#fbffee]">
 		<slot />
-		<Header /> 
-		<!-- active={url.pathname} -->
+		<Header active={Astro.url.pathname}/> 
 		<Footer />
 	</body>
 </html>
