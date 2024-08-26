@@ -1,0 +1,45 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
+const posts = await Astro.glob("./posts/*.md");
+---
+
+<Layout title="Blog">
+    <div
+        class="flex flex-wrap items-center justify-center gap-4 bg-[#008080] p-4"
+    >
+        {
+            posts.map((post) => (
+                <a href={post.url} data-astro-prefetch>
+                    <div class="flex flex-col items-center bg-[#fbffee] p-4 gap-4 rounded-md">
+                        <div class="flex gap-4 items-center justify-start">
+                            <div class="bg-[#008080] inline-block p-3 rounded-full text-white">
+                                <Icon
+                                    name={post.frontmatter.icon}
+                                    class="w-10 h-10"
+                                />
+                            </div>
+                            <h2 class="text-2xl font-bold">
+                                {post.frontmatter.title}
+                            </h2>
+                        </div>
+                        <div>
+                            <p class="text-xl">
+                                {post.frontmatter.description}
+                            </p>
+                        </div>
+                        <div class="flex justify-between w-full gap-4">
+                            <p class="text-sm text-gray-500">
+                                {post.frontmatter.pubDate}
+                            </p>
+
+                            <p class="text-sm text-gray-500">
+                                Language : {post.frontmatter.lang}
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            ))
+        }
+    </div>
+</Layout>

@@ -4,5 +4,9 @@ const { frontmatter } = Astro.props;
 ---
 
 <Layout title={frontmatter.title}>
-    
+        <div class="text-center text-4xl p-4">{frontmatter.title}</div>
+        <div class="text-center text-xl p-4">
+            <slot />
+        </div>
+    </div>
 </Layout>
