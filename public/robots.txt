@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /mail/
+Disallow: /thanks-for-contact

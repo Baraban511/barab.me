@@ -1,0 +1,26 @@
+---
+import Header from "../components/header.tsx";
+import Footer from "../components/footer.tsx";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="/styles.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>barab.</title>
+		<meta name="title" content="barab. - Developer" />
+		<meta
+			name="description"
+			content="I'm barab, an in learning developer. This website is my portfolio."
+		/>
+		<link rel="canonical" href="https://barab.me/" />
+	</head>
+	<body class="bg-[#fbffee]">
+		<slot />
+		<Header /> 
+		<!-- active={url.pathname} -->
+		<Footer />
+	</body>
+</html>
