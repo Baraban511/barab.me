@@ -1,6 +1,6 @@
 ---
-import Header from "../components/header.tsx";
-import Footer from "../components/footer.tsx";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 const { title } = Astro.props;
 ---
 
@@ -19,8 +19,8 @@ const { title } = Astro.props;
 		<link rel="canonical" href="https://barab.me/" />
 	</head>
 	<body class="bg-[#fbffee]">
+		<Header active={Astro.url.pathname} />
 		<slot />
-		<Header active={Astro.url.pathname}/> 
 		<Footer />
 	</body>
 </html>
