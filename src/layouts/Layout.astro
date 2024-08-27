@@ -17,6 +17,14 @@ const { title } = Astro.props;
 			content="I'm barab, an in learning developer. This website is my portfolio."
 		/>
 		<link rel="canonical" href="https://barab.me/" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="barab." />
+		<meta property="og:url" content="https://barab.me" />
+		<meta property="og:image" content="https://barab.pages.dev/logo.png" />
+		<meta
+			property="og:description"
+			content="My website made by my hands and brain (+ some docs)"
+		/>
 	</head>
 	<body class="bg-[#fbffee]">
 		<Header active={Astro.url.pathname} />
