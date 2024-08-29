@@ -1,12 +1,16 @@
 ---
 import Layout from "./Layout.astro";
-import '../content/styles/blog.css';
+import "../content/styles/blog.css";
 const { frontmatter } = Astro.props;
 ---
 
 <Layout title={frontmatter.title}>
+    <div class="flex flex-col items-center justify-center">
         <div class="text-left text-4xl p-4">{frontmatter.title}</div>
-        <div class="text-left p-4" id="blog-content">
+        <div
+            class="text-left p-4 max-w-xl"
+            id="blog-content"
+        >
             <slot />
         </div>
     </div>

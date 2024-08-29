@@ -7,7 +7,7 @@ icon: 'tabler:circle-number-1'
 lang: 'en'
 ---
 # 1st: Speed
-[Cloudflare pages](https://pages.cloudflare.com/) is running with V8 runtime. It makes the developement harder because API aren't the same than node js and some packages aren't available. But it makes the website faster. It's a tradeoff that I'm willing to make. The website is host on Cloudflare's global network, like Vercel or Netlify.
+[Cloudflare pages](https://pages.cloudflare.com/) is running with V8 runtime. It makes the developement harder because API aren't the same than node js and some packages aren't available. But it makes the website faster. It's a tradeoff that I'm willing to make. The website is host on Cloudflare's global network, like with Vercel or Deno deploy.
 
 # 2nd: Global Cloudflare experience
 Cloudflare also helps you to manage your domain dns and ssl certificate. It's a great experience to have everything in one place. The dashboard is complete and not overwhelming. Cloudflare also have a lot of optimization that you can enable with one click.

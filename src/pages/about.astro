@@ -6,6 +6,9 @@ import Layout from "../layouts/Layout.astro";
     <head>
         <link rel="preload" href="/house.splinecode" as="fetch" />
     </head>
+    <div id="loading" class="flex items-center justify-center text-xl">
+        <p>Loading...</p>
+    </div>
     <canvas id="canvas3d"></canvas>
     <script>
         import { Application } from "@splinetool/runtime";
@@ -16,6 +19,8 @@ import Layout from "../layouts/Layout.astro";
         app.load("/house.splinecode", undefined, {
             credentials: "include",
             mode: "no-cors",
+        }).then(() => {
+            document.getElementById("loading").remove();
         });
     </script>
 </Layout>

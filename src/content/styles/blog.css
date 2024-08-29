@@ -6,17 +6,17 @@
 }
 h1 {
     @apply text-2xl;
-    @apply p-4;
+    @apply py-4;
   }
   h2 {
     @apply text-xl;
-    @apply p-4;
+    @apply py-4;
   }
   h3 {
     @apply text-lg;
-    @apply p-4;
+    @apply py-4;
   }
   h4 {
     @apply text-base;
-    @apply p-4;
+    @apply py-4;
   }
