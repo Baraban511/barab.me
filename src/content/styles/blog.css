@@ -1,0 +1,22 @@
+#blog-content a {
+    @apply text-[#008080]
+ }
+ #blog-content a:hover {    
+@apply underline    
+}
+h1 {
+    @apply text-2xl;
+    @apply p-4;
+  }
+  h2 {
+    @apply text-xl;
+    @apply p-4;
+  }
+  h3 {
+    @apply text-lg;
+    @apply p-4;
+  }
+  h4 {
+    @apply text-base;
+    @apply p-4;
+  }
