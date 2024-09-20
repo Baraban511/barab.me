@@ -10,7 +10,7 @@ const posts = await Astro.glob("./posts/*.md");
     >
         {
             posts.map((post) => (
-                <a href={post.url} data-astro-prefetch>
+                <a href={post.url} data-astro-prefetch class="max-w-xl">
                     <div class="flex flex-col items-center bg-[#fbffee] p-4 gap-4 rounded-md">
                         <div class="flex gap-4 items-center justify-start">
                             <div class="bg-[#008080] inline-block p-3 rounded-full text-white">
