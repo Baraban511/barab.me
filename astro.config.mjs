@@ -21,6 +21,7 @@ export default defineConfig({
     },
     define: {
       'import.meta.env.BUILD_DATE': JSON.stringify(new Date().toISOString().split('T')[0]),
+      "process.env": process.env,
     },
   },
   integrations: [tailwind({
