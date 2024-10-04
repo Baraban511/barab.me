@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/BlogLayout.astro
-title: 'Why is Cloudflare pages so great?'
+title: "Why is Cloudflare pages so great?"
 pubDate: '26/08/2024'
 description: "Let's dive in what I love in Cloudflare pages"
 icon: 'tabler:circle-number-1'
