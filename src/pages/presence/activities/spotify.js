@@ -7,8 +7,17 @@ export async function GET({ request }) {
         if (activities[i].name == "Spotify") {
             let currentSong = await fetch("https://api.statusbadges.me/openspotify/" + userId);
             activities[i].songURL = currentSong.url;
-            return new Response(JSON.stringify(activities[i]))
+            return new Response(JSON.stringify(activities[i]), {
+                headers: {
+                    "content-type": "application/json",
+                    "Access-Control-Allow-Origin": "*"
+                },
+            });
         }
     }
-    return new Response(false)
+    return new Response(false, {
+        headers: {
+            "Access-Control-Allow-Origin": "*"
+        },
+    });
 }
