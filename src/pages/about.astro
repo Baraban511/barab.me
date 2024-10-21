@@ -9,18 +9,48 @@ import Layout from "../layouts/Layout.astro";
     <div id="loading" class="flex items-center justify-center text-xl">
         <p>Loading...</p>
     </div>
-    <canvas id="canvas3d"></canvas>
+    <canvas id="3dhouse" class="fixed top-0"></canvas>
     <script>
         import { Application } from "@splinetool/runtime";
 
-        const canvas = document.getElementById("canvas3d");
-        const app = new Application(canvas);
+        const canvas = document.getElementById("3dhouse");
+        const spline = new Application(canvas);
 
-        app.load("/house.splinecode", {
-            credentials: "include",
-            mode: "no-cors",
-        }).then(() => {
-            document.getElementById("loading").remove();
-        });
+        spline
+            .load("/house.splinecode", {
+                credentials: "include",
+                mode: "no-cors",
+            })
+            .then(async () => {
+                document.getElementById("loading").remove();
+                document
+                    .getElementById("header")
+                    .classList.add(
+                        "transition",
+                        "opacity-0",
+                        "hover:opacity-100",
+                    );
+                var status = await (await fetch("/presence")).text();
+                spline.setVariable("status", status);
+                var spotify = await (
+                    await fetch("/presence/activities/spotify")
+                ).json();
+                if (spotify) {
+                    spline.setVariable("music", "listening " + spotify.details);
+                }
+
+                var vscode = await (
+                    await fetch("/presence/activities/vscode")
+                ).json();
+                if (vscode) {
+                    spline.setVariable("code", vscode.details);
+                }
+
+                spline.addEventListener("mouseDown", (e) => {
+                    if (e.target.name === "Cube") {
+                        console.log("I have been clicked!");
+                    }
+                });
+            });
     </script>
 </Layout>
