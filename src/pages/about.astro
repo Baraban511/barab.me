@@ -45,12 +45,6 @@ import Layout from "../layouts/Layout.astro";
                 if (vscode) {
                     spline.setVariable("code", vscode.details);
                 }
-
-                spline.addEventListener("mouseDown", (e) => {
-                    if (e.target.name === "Cube") {
-                        console.log("I have been clicked!");
-                    }
-                });
             });
     </script>
 </Layout>
