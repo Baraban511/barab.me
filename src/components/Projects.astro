@@ -2,23 +2,18 @@
 import { Icon } from "astro-icon/components";
 const projects = [
     {
-        icon: "tabler:database",
-        title: "CO internship",
+        icon: "tabler:keyboard",
+        title: "baraboard",
         description:
-            "A small project made to discover React during an one week internship.",
-        build: [
-            "tabler:brand-react",
-            "tabler:brand-tailwind",
-            "tabler:brand-cloudflare",
-            "tabler:brand-github-copilot",
-        ],
-        link: "https://data.barab.live",
+            'A macropad made from scratch. <iframe src="https://collaborate.shapr3d.com/v/4Oa3S7JhNjqeqiLFoZJ6p" class="flex w-full h-[400px]" frameborder="0" allow="web-share; xr-spatial-tracking" loading="lazy" scrolling="no" referrerpolicy="origin-when-cross-origin" allowfullscreen></iframe>',
+        build: ["file-icons:kicad"],
+        link: "https://github.com/Baraban511/baraboard",
     },
     {
         icon: "tabler:calendar-code",
         title: "taquin",
         description:
-            "A website to export your EcoleDirecte schedule to your calendar app with updates and more. <strong>New version available !</strong>",
+            'A website to export your EcoleDirecte schedule to your calendar app with updates and more. <strong>New version available !</strong> <iframe src="https://taquin.tech" class="flex w-full h-[400px]" frameborder="0" loading="lazy" scrolling="no" referrerpolicy="origin-when-cross-origin"></iframe>',
         build: [
             "tabler:brand-svelte",
             "tabler:brand-tailwind",
@@ -40,6 +35,19 @@ const projects = [
             "tabler:brand-cloudflare",
         ],
     },
+    {
+        icon: "tabler:database",
+        title: "CO internship",
+        description:
+            "A small project made to discover React during an one week internship.",
+        build: [
+            "tabler:brand-react",
+            "tabler:brand-tailwind",
+            "tabler:brand-cloudflare",
+            "tabler:brand-github-copilot",
+        ],
+        link: "https://data.barab.live",
+    },
 ];
 const skills = [
     "tabler:brand-html5",
@@ -55,11 +63,11 @@ const skills = [
 ];
 ---
 
-<div class="flex flex-col md:flex-row gap-8 bg-[#fbffee] p-8">
+<div class="flex flex-wrap gap-8 bg-[#fbffee] p-8">
     {
         projects.map((project) => {
             return (
-                <div class=" flex-1 space-y-2 hover:shadow-md hover:shadow-[#008080] p-3 transition ease-in-out duration-300 rounded-md">
+                <div class="flex-1 min-w-fit  space-y-2 hover:shadow-md hover:shadow-[#008080] p-3 transition ease-in-out duration-300 rounded-md">
                     <div class="flex items-center space-x-4">
                         <div class="bg-[#008080] inline-block p-3 rounded-full text-white">
                             <Icon name={project.icon} class="w-10 h-10" />
@@ -102,6 +110,10 @@ const skills = [
 <div class="text-center w-full">
     <p class="text-2xl font-bold px-2">I've also used or I'm still using:</p>
     <div class="flex flex-wrap items-center justify-center m-4 gap-4">
-        {skills.map((skill) => <Icon name={skill} class="hover:text-[#008080] w-6 h-6"/>)}
+        {
+            skills.map((skill) => (
+                <Icon name={skill} class="hover:text-[#008080] w-6 h-6" />
+            ))
+        }
     </div>
 </div>

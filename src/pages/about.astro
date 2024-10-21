@@ -16,7 +16,7 @@ import Layout from "../layouts/Layout.astro";
         const canvas = document.getElementById("canvas3d");
         const app = new Application(canvas);
 
-        app.load("/house.splinecode", undefined, {
+        app.load("/house.splinecode", {
             credentials: "include",
             mode: "no-cors",
         }).then(() => {
