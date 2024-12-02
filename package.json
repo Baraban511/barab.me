@@ -17,7 +17,7 @@
     "@fontsource-variable/noto-sans": "^5.0.5",
     "@iconify-json/file-icons": "^1.2.0",
     "@splinetool/runtime": "^1.9.35",
-    "astro": "^4.16.8",
+    "astro": "^4.16.16",
     "astro-icon": "^1.1.1",
     "resend": "^4.0.1",
     "tailwindcss": "^3.4.14"
