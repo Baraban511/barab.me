@@ -1,0 +1,34 @@
+---
+import fetchRepoContent from "../functions/fetchRepoContent.ts";
+import { createHighlighter } from "shiki";
+var files = await fetchRepoContent(
+    "Baraban511",
+    "NSI",
+    "",
+    import.meta.env.GITHUB_PAT,
+);
+
+// `createHighlighter` is async, it initializes the internal and
+// loads the themes and languages specified.
+const pythonHighlight = await createHighlighter({
+    themes: ["nord"],
+    langs: ["python"],
+});
+---
+
+<div class="flex flex-col items-center justify-center gap-5">
+    {
+        files.map((file) => {
+            const code = pythonHighlight.codeToHtml(file.content, {
+                lang: "python",
+                theme: "nord",
+            });
+            return (
+                <div class="flex flex-col items-center justify-center w-full gap-5 p-5">
+                    <h1>{file.name}</h1>
+                    <div set:html={code} class="w-full text-wrap m-5 rounded-sm border-8 border-dashed border-gray-950" />
+                </div>
+            );
+        })
+    }
+</div>

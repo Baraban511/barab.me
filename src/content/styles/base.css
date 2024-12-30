@@ -5,3 +5,6 @@
     background-color:#008080;
     color: #fbffee;
    }	
+html {
+    scrollbar-color: #6b7280 #fbffee;
+}

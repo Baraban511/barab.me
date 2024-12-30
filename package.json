@@ -11,22 +11,24 @@
     "cf-typegen": "wrangler types"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^11.2.0",
+    "@astrojs/cloudflare": "12.1.0",
     "@astrojs/sitemap": "^3.2.1",
-    "@astrojs/tailwind": "^5.1.2",
-    "@fontsource-variable/noto-sans": "^5.0.5",
-    "@iconify-json/file-icons": "^1.2.0",
-    "@splinetool/runtime": "^1.9.35",
-    "astro": "^4.16.16",
-    "astro-icon": "^1.1.1",
+    "@astrojs/tailwind": "5.1.4",
+    "@fontsource-variable/noto-sans": "^5.1.1",
+    "@iconify-json/file-icons": "^1.2.1",
+    "@splinetool/runtime": "^1.9.54",
+    "astro": "5.1.1",
+    "astro-icon": "^1.1.5",
     "resend": "^4.0.1",
-    "tailwindcss": "^3.4.14"
+    "tailwindcss": "^3.4.17"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20241127.0",
-    "@iconify-json/tabler": "^1.2.9",
-    "@iconify/tailwind": "^1.1.3",
-    "@tailwindcss/forms": "^0.5.7",
-    "wrangler": "^3.84.1"
-  }
+    "@cloudflare/workers-types": "^4.20241224.0",
+    "@iconify-json/tabler": "^1.2.13",
+    "@iconify/tailwind": "^1.2.0",
+    "@tailwindcss/forms": "^0.5.9",
+    "shiki": "^1.24.4",
+    "wrangler": "^3.99.0"
+  },
+  "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
 }
