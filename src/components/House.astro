@@ -1,0 +1,38 @@
+---
+import Loading from "./Loading.astro";
+---
+
+<head>
+    <link rel="preload" href="/house.splinecode" as="fetch" />
+</head>
+<Loading id="loading" />
+<canvas id="3dhouse" class="fixed top-0"></canvas>
+<script>
+    import { Application } from "@splinetool/runtime";
+
+    const canvas = document.getElementById("3dhouse") as HTMLCanvasElement;
+    const spline = new Application(canvas);
+
+    spline
+        .load("/house.splinecode", {
+            credentials: "include",
+            mode: "no-cors",
+        })
+        .then(async () => {
+            var status = await (await fetch("/presence")).text();
+            spline.setVariable("status", status);
+            var spotify = await (
+                await fetch("/presence/activities/spotify")
+            ).json();
+            if (spotify) {
+                spline.setVariable("music", "listening " + spotify.details);
+            }
+
+            var vscode = await (
+                await fetch("/presence/activities/vscode")
+            ).json();
+            if (vscode) {
+                spline.setVariable("code", vscode.details);
+            }
+        });
+</script>

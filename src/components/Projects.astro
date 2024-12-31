@@ -60,6 +60,7 @@ const skills = [
     "tabler:brand-vscode",
     "tabler:brand-spotify",
     "tabler:lemon-2",
+    "mdi:arch",
 ];
 ---
 
@@ -74,7 +75,9 @@ const skills = [
                         </div>
                         <h2 class="text-2xl font-bold">{project.title}</h2>
                     </div>
-                    <Fragment class="text-xl" set:html={project.description} />
+                   <div class="flex flex-col gap-2">
+                     <Fragment class="text-xl" set:html={project.description} />
+                    </div>
                     {project.build ? (
                         <h3 class="text-lg font-semibold">Made using</h3>
                     ) : null}

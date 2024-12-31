@@ -8,15 +8,13 @@ var files = await fetchRepoContent(
     import.meta.env.GITHUB_PAT,
 );
 
-// `createHighlighter` is async, it initializes the internal and
-// loads the themes and languages specified.
 const pythonHighlight = await createHighlighter({
     themes: ["nord"],
     langs: ["python"],
 });
 ---
 
-<div class="flex flex-col items-center justify-center gap-5">
+<div class="flex flex-col items-center justify-center">
     {
         files.map((file) => {
             const code = pythonHighlight.codeToHtml(file.content, {
@@ -24,9 +22,9 @@ const pythonHighlight = await createHighlighter({
                 theme: "nord",
             });
             return (
-                <div class="flex flex-col items-center justify-center w-full gap-5 p-5">
-                    <h1>{file.name}</h1>
-                    <div set:html={code} class="w-full text-wrap m-5 rounded-sm border-8 border-dashed border-gray-950" />
+                <div class="flex flex-col items-center justify-center w-full p-8">
+                    <p class="text-xl font-semibold">{file.name}</p>
+                    <div set:html={code} class="w-full text-wrap m-2 rounded border border-gray-500 overflow-auto" />
                 </div>
             );
         })
