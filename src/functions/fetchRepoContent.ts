@@ -2,7 +2,8 @@ export default async function fetchRepoContent(owner: string, repo: string, path
     const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
     const response = await fetch(url, {
         headers: {
-            'Authorization': `token ${token}`
+            'Authorization': `token ${token}`,
+            "User-Agent": "barabsite",
         }
     });
     const data: any[] = await response.json();
