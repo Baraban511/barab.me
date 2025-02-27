@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "bundle": "astro build",
+    "build": "astro build",
     "preview": "astro build && wrangler pages dev",
     "astro": "astro",
     "cf-typegen": "wrangler types"
