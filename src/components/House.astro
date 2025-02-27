@@ -22,14 +22,14 @@ import Loading from "./Loading.astro";
             var status = await (await fetch("/presence")).text();
             spline.setVariable("status", status);
             var spotify = await (
-                await fetch("/presence/activities/spotify")
+                await fetch("/presence/spotify")
             ).json();
             if (spotify) {
                 spline.setVariable("music", "listening " + (spotify as any).details);
             }
 
             var vscode = await (
-                await fetch("/presence/activities/vscode")
+                await fetch("/presence/vscode")
             ).json();
             if (vscode) {
                 spline.setVariable("code", (vscode as any).details);

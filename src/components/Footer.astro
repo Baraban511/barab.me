@@ -4,15 +4,14 @@ import astroLogoDark from "../content/astro-logo-dark.svg";
 import barabLogoSimple from "../content/barab_logo_simple.png";
 import { Icon } from "astro-icon/components";
 const links = [
-    //{ name: "Scrapbook", href: "https://scrapbook.barab.me/" },
-    { name: "EDC - old", href: "https://barab.ovh" },
+    { name: "Links", href: "https://links.barab.me" },
     { name: "CO2 internship", href: "https://data.barab.me" },
     { name: "Mail", href: "mailto:contact@barab.me?subject=Contact" },
 ];
 ---
 
 <div
-    class="bg-[#fbffee] flex flex-col md:flex-row w-full max-w-screen gap-8 md:gap-16 px-8 text-sm pt-8"
+    class="bg-[#fbffee] flex flex-col md:flex-row w-full max-w-screen gap-8 md:gap-16 p-5 text-sm"
 >
     <div class="flex-1">
         <div class="flex items-center gap-1">
@@ -20,7 +19,12 @@ const links = [
         </div>
         <div class="text-gray-500 mb-2 select-all">Learning developer</div>
 
-        <Image src="https://wakatime.com/badge/user/45f0ba86-46c8-41e2-8b47-b13184fb2b11/project/9335871f-f383-4abe-acf3-65e6092ebdd3.svg" alt="wakatime" height={20} width={173}/>
+        <Image
+            src="https://wakatime.com/badge/user/45f0ba86-46c8-41e2-8b47-b13184fb2b11/project/9335871f-f383-4abe-acf3-65e6092ebdd3.svg"
+            alt="wakatime"
+            height={20}
+            width={173}
+        />
         <a href="https://astro.build">
             <Image
                 src={astroLogoDark}

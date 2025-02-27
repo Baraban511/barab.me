@@ -1,21 +1,22 @@
 ---
-import { Image } from 'astro:assets';
-import barabLogoSimple from '../content/barab_logo_simple.png';
+import { Image } from "astro:assets";
+import barabLogoSimple from "../content/barab_logo_simple.png";
 const { active } = Astro.props;
 const menus = [
     { name: "Home", href: "/" },
     { name: "About me", href: "/about" },
+    { name: "Code", href: "/code" },
     { name: "Blog", href: "/blog" },
-    { name: "NSI", href: "/nsi" },
     { name: "Contact", href: "/contact" },
 ];
 ---
 
-<div class="bg-[#fbffee] w-full py-6 px-8 flex flex-row justify-between flex-wrap gap-6 relative top-0 z-50"
+<div
+    class="bg-[#fbffee] w-full p-5 flex flex-row justify-between flex-wrap gap-6 relative top-0 z-50"
 >
     <div class="shrink-0 h-6">
         <a href="/">
-           <Image src={barabLogoSimple} alt="barab. logo" class='h-6 w-auto'/>
+            <Image src={barabLogoSimple} alt="barab. logo" class="h-6 w-auto" />
         </a>
     </div>
     <ul class="flex items-center group gap-6">
@@ -30,7 +31,8 @@ const menus = [
                                 ? " font-bold border-b-2"
                                 : "")
                         }
-                        data-astro-prefetch>
+                        data-astro-prefetch
+                    >
                         {menu.name}
                     </a>
                 </li>

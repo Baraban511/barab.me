@@ -1,5 +1,4 @@
 ---
 const { email } = Astro.params;
-console.log(email);
 return Astro.redirect(`mailto:${email}?subject=Contact`);
 ---
