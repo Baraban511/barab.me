@@ -1,24 +1,38 @@
 ---
 import fetchRepoContent from "../functions/fetchRepoContent.ts";
-import { Code } from 'astro:components';
+import python from "shiki/langs/python.mjs";
+import nord from "shiki/themes/nord.mjs";
+import { createHighlighterCore } from 'shiki/core'
+import { createOnigurumaEngine } from 'shiki/engine/oniguruma'
+
+
 var files = await fetchRepoContent(
     "Baraban511",
     "NSI",
     "",
     import.meta.env.GITHUB_PAT,
 );
+
+const pythonHighlight = await createHighlighterCore({
+    themes: [nord],
+    langs: [python],
+    engine: createOnigurumaEngine(() => import('shiki/wasm')),
+});
 ---
 
 <div class="flex flex-col items-center justify-center">
     {
         files.map((file) => {
+            const code = pythonHighlight.codeToHtml(file.content, {
+                lang: "python",
+                theme: "nord",
+            });
             return (
                 <div class="flex flex-col items-center justify-center w-full p-8">
                     <p class="text-xl font-semibold">{file.name}</p>
-                    <Code
-                      code={file.content}
-                      lang="py"
-                      class="w-full text-wrap m-2 rounded border border-gray-500 overflow-auto"
+                    <div
+                        set:html={code}
+                        class="w-full text-wrap m-2 rounded border border-gray-500 overflow-auto"
                     />
                 </div>
             );

@@ -15,7 +15,7 @@ export default async function fetchRepoContent(
   // var total = data.filter(
   //   (file) => file.type === "file" && file.name.endsWith(".py"),
   // ).length;
-  console.log(data);
+  //console.log(data);
   var files = [];
   for (const item of data) {
     if (item.type === "dir") {
