@@ -3,8 +3,7 @@ import fetchRepoContent from "../functions/fetchRepoContent.ts";
 import python from "shiki/langs/python.mjs";
 import nord from "shiki/themes/nord.mjs";
 import { createHighlighterCore } from 'shiki/core'
-import { createOnigurumaEngine } from 'shiki/engine/oniguruma'
-
+import { createJavaScriptRegexEngine } from 'shiki/engine/javascript'
 
 var files = await fetchRepoContent(
     "Baraban511",
@@ -16,7 +15,7 @@ var files = await fetchRepoContent(
 const pythonHighlight = await createHighlighterCore({
     themes: [nord],
     langs: [python],
-    engine: createOnigurumaEngine(() => import('shiki/wasm')),
+    engine: createJavaScriptRegexEngine()
 });
 ---
 
