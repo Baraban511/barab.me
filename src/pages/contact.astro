@@ -4,7 +4,7 @@ import Toast from "../components/Toast.astro"
 import { actions, isInputError } from "astro:actions";
 const result = Astro.getActionResult(actions.send);
 const inputErrors = isInputError(result?.error) ? result.error.fields : {};
-result.error ? console.log(result.error) : ""
+result?.error ? console.log(result.error) : ""
 ---
 
 <Layout title="Contact">
