@@ -1,11 +1,10 @@
 ---
-import fetchRepoContent from "../functions/fetchRepoContent.ts";
+import fetchRepoContent from "@functions/fetchRepoContent.ts";
 import python from "shiki/langs/python.mjs";
 import nord from "shiki/themes/nord.mjs";
 import { createHighlighterCore } from "shiki/core";
 import {loadWasm, createOnigurumaEngine} from "shiki/engine/oniguruma";
 await loadWasm(import('shiki/onig.wasm'));
-
 
 var files = await fetchRepoContent(
     "Baraban511",

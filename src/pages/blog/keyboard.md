@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/BlogLayout.astro
+layout: "@layouts/BlogLayout.astro"
 title: "Comment j'ai designé mon clavier à partir de zéro ?"
 pubDate: '20/09/2024'
 description: "Grâce à hackclub, j'ai eu envie de me lancer dans la création de mon propre clavier. De la création du schematique au design du pcb, voici comment j'ai fait"
