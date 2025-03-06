@@ -8,6 +8,7 @@ const projects = [
             'A macropad made from scratch. <iframe src="https://collaborate.shapr3d.com/v/4Oa3S7JhNjqeqiLFoZJ6p" class="flex w-full h-[400px]" frameborder="0" allow="web-share; xr-spatial-tracking" loading="lazy" scrolling="no" referrerpolicy="origin-when-cross-origin" allowfullscreen></iframe>',
         build: ["file-icons:kicad"],
         link: "https://github.com/Baraban511/baraboard",
+        date: 2024
     },
     {
         icon: "mdi:nix",
@@ -20,6 +21,7 @@ const projects = [
             "simple-icons:zedindustries",
         ],
         link: "https://github.com/Baraban511/brice",
+        date: 2025
     },
     {
         icon: "tabler:calendar-code",
@@ -34,6 +36,7 @@ const projects = [
             "tabler:brand-cloudflare",
         ],
         link: "https://taquin.barab.me",
+        date: 2023
     },
     {
         icon: "tabler:database",
@@ -47,6 +50,7 @@ const projects = [
             "tabler:brand-github-copilot",
         ],
         link: "https://data.barab.me",
+        date: 2024
     },
     {
         icon: "tabler:database",
@@ -58,6 +62,7 @@ const projects = [
             "tabler:brand-css3",
         ],
         link: "https://links.barab.me",
+        date: 2024
     },
     {
         icon: "tabler:brand-astro",
@@ -71,6 +76,7 @@ const projects = [
             "line-md:iconify2-static",
             "tabler:brand-cloudflare",
         ],
+        date: 2024
     },
 ];
 const skills = [
@@ -119,9 +125,10 @@ const skills = [
                             ))}
                         </div>
                     )}
+                    <div class="flex justify-between">
                     {project.link && (
                         <a class="block" href={project.link}>
-                            <p class="text-gray-500 cursor-pointer hover:text-[#008080] inline-flex items-center group">
+                            <p class="cursor-pointer text-[#008080] inline-flex items-center group">
                                 See
                                 <Icon
                                     name="tabler:chevron-right"
@@ -131,6 +138,10 @@ const skills = [
                             </p>
                         </a>
                     )}
+                    {project.date && (
+                    <p class="text-gray-500">Made in {project.date}</p>
+                    )}
+                    </div>
                 </div>
             );
         })
