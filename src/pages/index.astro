@@ -1,15 +1,15 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Projects from "../components/Projects.astro";
+import Layout from "@layouts/Layout.astro";
+import Projects from "@components/Projects.astro";
 import { Image } from "astro:assets";
-import barabLogoVert from "../content/barab_logo_vert.png";
-import wavingHand from "../content/waving-hand.png";
+import barabLogoVert from "@assets/images/barab_logo_vert.png";
+import wavingHand from "@assets/images/waving-hand.png";
 ---
 
 <Layout title="Home">
 	<div class="p-4 mx-auto bg-[#008080] w-full">
 		<div
-			class="max-w-screen-lg mx-auto flex flex-col items-center justify-center gap-4"
+			class="max-w-(--breakpoint-lg) mx-auto flex flex-col items-center justify-center gap-4"
 		>
 			<div class="flex items-center flex-col text-center gap-4">
 				<div class="flex items-center gap-4">

@@ -1,9 +1,0 @@
----
-import Layout from "../../layouts/Layout.astro";
-import Loading from "../../components/Loading.astro";
-import RepoCode from "../../components/RepoCode.astro";
----
-
-<Layout title="Home">
-        <RepoCode server:defer><Loading slot="fallback" /></RepoCode>
-</Layout>

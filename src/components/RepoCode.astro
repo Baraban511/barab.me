@@ -1,10 +1,11 @@
 ---
-import fetchRepoContent from "../functions/fetchRepoContent.ts";
-import { createHighlighterCore } from "shiki/core";
-import {loadWasm} from "@shikijs/engine-oniguruma";
+import fetchRepoContent from "@functions/fetchRepoContent.ts";
 import python from "shiki/langs/python.mjs";
 import nord from "shiki/themes/nord.mjs";
+import { createHighlighterCore } from "shiki/core";
+import {loadWasm, createOnigurumaEngine} from "shiki/engine/oniguruma";
 await loadWasm(import('shiki/onig.wasm'));
+
 var files = await fetchRepoContent(
     "Baraban511",
     "NSI",
@@ -15,6 +16,7 @@ var files = await fetchRepoContent(
 const pythonHighlight = await createHighlighterCore({
     themes: [nord],
     langs: [python],
+    engine: createOnigurumaEngine()
 });
 ---
 
@@ -30,7 +32,7 @@ const pythonHighlight = await createHighlighterCore({
                     <p class="text-xl font-semibold">{file.name}</p>
                     <div
                         set:html={code}
-                        class="w-full text-wrap m-2 rounded border border-gray-500 overflow-auto"
+                        class="grid justify-stretch w-full overflow-scroll text-wrap m-2 rounded-sm border border-gray-500"
                     />
                 </div>
             );
