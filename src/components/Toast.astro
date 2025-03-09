@@ -1,10 +1,30 @@
 ---
 const { success, message } = Astro.props;
+var visible = true;
+function hideElement() {
+  visible = false;
+}
 import { Image } from 'astro:assets';
+import { Icon } from "astro-icon/components";
 import thumbsUp from "@assets/images/thumbs-up.png";
 import crossMark from "@assets/images/cross-mark.png"
 ---
-<div class={`fixed bottom-0 left-0 min-w-80 m-5 p-3 rounded-sm border-2 border-dashed bg-[#fbffee]`} style={`border-color: ${success ? "#008080" : "black"};`}>
-<div class='flex flex-row items-center gap-1'>{success ? (<Image src={thumbsUp} alt="Thumbs Up" class="size-4 "/>) : <Image src={crossMark} alt="Cross Mark" class="size-4 "/>}<p class="text-lg font-bold">{message.title}</p></div>
+<div class={`fixed bottom-0 left-0 min-w-80 m-5 p-3 rounded-sm border-2 border-dashed bg-[#fbffee]`} style={`border-color: ${success ? "#008080" : "black"};`} id="toast">
+        <div class='flex flex-row items-center gap-1'>
+        {success
+        ? (<Image src={thumbsUp} alt="Thumbs Up" class="size-4 "/>)
+        : <Image src={crossMark} alt="Cross Mark" class="size-4 "/>}
+        <p class="text-lg font-bold">{message.title}</p>
+        </div>
 <p>{message.text}</p>
+ <button class="absolute top-0 right-0 p-1" id="removeButton"><Icon
+     name={"tabler:circle-dashed-x"}
+     class="hover:text-[#008080] w-6 h-6"
+ /></button>
 </div>
+<script>
+  const button = document.getElementById('removeButton');
+    button.addEventListener('click', () => {
+      document.getElementById("toast").classList.add("hidden");
+    });
+</script>

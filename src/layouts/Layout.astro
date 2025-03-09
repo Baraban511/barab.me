@@ -4,7 +4,7 @@ import "@fontsource-variable/noto-sans";
 import notoSans from "@fontsource-variable/noto-sans/files/noto-sans-latin-wght-normal.woff2?url";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
-const { title } = Astro.props;
+const { title, active } = Astro.props;
 ---
 
 <html lang="en" class="scroll-smooth">
@@ -36,7 +36,7 @@ const { title } = Astro.props;
 		<link rel="sitemap" href="/sitemap-index.xml" />
 	</head>
 	<body class="flex flex-col bg-[#fbffee] h-screen">
-		<Header active={Astro.url.pathname} />
+		<Header active={active || Astro.url.pathname} />
 		<slot />
 		<Footer />
 	</body>
