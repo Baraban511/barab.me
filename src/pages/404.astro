@@ -1,0 +1,9 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Home from "@components/Home.astro";
+import Toast from "@components/Toast.astro"
+---
+<Layout title="Home" active="/">
+	<Home/>
+<Toast success={false} message={{title: "Error 404", text: "Nothing here..."}} />
+</Layout>

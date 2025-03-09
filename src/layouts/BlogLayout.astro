@@ -4,7 +4,7 @@ import "@assets/styles/blog.css";
 const { frontmatter } = Astro.props;
 ---
 
-<Layout title={frontmatter.title}>
+<Layout title={frontmatter.title} active="/blog">
     <div class="flex flex-col items-center justify-center">
         <div class="text-left text-4xl p-4">{frontmatter.title}</div>
         <div

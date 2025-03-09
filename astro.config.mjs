@@ -66,6 +66,7 @@ export default defineConfig({
           "brand-vscode",
           "brand-spotify",
           "lemon-2",
+          "circle-dashed-x",
         ],
         "file-icons": ["kicad"],
         mdi: ["nix", "arch"],

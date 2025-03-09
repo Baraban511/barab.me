@@ -1,0 +1,31 @@
+---
+import Projects from "@components/Projects.astro";
+import { Image } from "astro:assets";
+import barabLogoVert from "@assets/images/barab_logo_vert.png";
+import wavingHand from "@assets/images/waving-hand.png";
+---
+<div class="p-4 mx-auto bg-[#008080] w-full">
+		<div
+			class="max-w-(--breakpoint-lg) mx-auto flex flex-col items-center justify-center gap-4"
+		>
+			<div class="flex items-center flex-col text-center gap-4">
+				<div class="flex items-center gap-4">
+					<Image
+						src={wavingHand}
+						alt="Waving Hand"
+						class="w-16 h-16"
+					/>
+					<p class="text-4xl font-bold select-none">
+						Welcome on my website
+					</p>
+				</div>
+				<p class="text-xl font-medium select-none">
+					I'm barab, a french developer. I'm learning code and
+					english. Here are my projects :
+				</p>
+			</div>
+			<Image src={barabLogoVert} alt="barab. logo"  width={128}
+           height={128}>
+		</div>
+	</div>
+	<Projects />
