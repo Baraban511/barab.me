@@ -5,13 +5,14 @@ import python from "shiki/langs/python.mjs";
 import nord from "shiki/themes/nord.mjs";
 import { createHighlighterCore } from "shiki/core";
 import {loadWasm, createOnigurumaEngine} from "shiki/engine/oniguruma";
+import { GITHUB_PAT } from "astro:env/server";
 await loadWasm(import('shiki/onig.wasm'));
 
 var files = await fetchRepoContent(
     "Baraban511",
     "NSI",
     "",
-    import.meta.env.GITHUB_PAT,
+    GITHUB_PAT,
 );
 
 const pythonHighlight = await createHighlighterCore({

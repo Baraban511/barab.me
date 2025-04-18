@@ -4,7 +4,6 @@ export default async function fetchRepoContent(
   path: string,
   token: string,
 ) {
-  return;
   const cacheOptions = {
     cf: {
       cacheEverything: true,

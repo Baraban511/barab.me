@@ -1,4 +1,4 @@
-import { defineConfig } from "astro/config";
+import { defineConfig, envField } from "astro/config";
 import cloudflare from "@astrojs/cloudflare";
 import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
@@ -9,6 +9,25 @@ export default defineConfig({
   site: website,
   prefetch: true,
   output: "server",
+  env: {
+    schema: {
+      RESEND_KEY: envField.string({
+        context: "server",
+        access: "secret",
+        optional: false,
+      }),
+      GITHUB_PAT: envField.string({
+        context: "server",
+        access: "secret",
+        optional: false,
+      }),
+      EMAIL_TO: envField.string({
+        context: "server",
+        access: "secret",
+        optional: false,
+      }),
+    },
+  },
   adapter: cloudflare({
     platformProxy: {
       enabled: false,
