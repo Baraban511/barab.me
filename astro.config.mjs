@@ -13,7 +13,7 @@ export default defineConfig({
     platformProxy: {
       enabled: false,
     },
-    imageService: "cloudflare",
+    imageService: "passthrough",
   }),
   vite: {
     plugins: [tailwindcss()],
@@ -22,9 +22,8 @@ export default defineConfig({
     },
     define: {
       "import.meta.env.BUILD_DATE": JSON.stringify(
-        new Date().toISOString().split("T")[0]
+        new Date().toISOString().split("T")[0],
       ),
-      "process.env": process.env,
     },
   },
   integrations: [
