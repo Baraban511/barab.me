@@ -1,7 +1,9 @@
 import { ActionError, defineAction } from "astro:actions";
 import { z } from "astro:schema";
 import { Resend } from "resend";
-const resend = new Resend(import.meta.env.RESEND_KEY);
+import { RESEND_KEY } from "astro:env/server";
+import { EMAIL_TO } from "astro:env/server";
+const resend = new Resend(RESEND_KEY);
 
 export const server = {
   send: defineAction({
@@ -13,7 +15,7 @@ export const server = {
     handler: async (input) => {
       const { error } = await resend.emails.send({
         from: "contact@mail.barab.me",
-        to: import.meta.env.EMAIL_TO,
+        to: EMAIL_TO,
         subject: "Contact",
         html: `<p>${input.message}</p>${
           input.email

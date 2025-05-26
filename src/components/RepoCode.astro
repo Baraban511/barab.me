@@ -1,16 +1,18 @@
 ---
+import Toast from "@components/Toast.astro"
 import fetchRepoContent from "@functions/fetchRepoContent.ts";
 import python from "shiki/langs/python.mjs";
 import nord from "shiki/themes/nord.mjs";
 import { createHighlighterCore } from "shiki/core";
 import {loadWasm, createOnigurumaEngine} from "shiki/engine/oniguruma";
+import { GITHUB_PAT } from "astro:env/server";
 await loadWasm(import('shiki/onig.wasm'));
 
 var files = await fetchRepoContent(
     "Baraban511",
     "NSI",
     "",
-    import.meta.env.GITHUB_PAT,
+    GITHUB_PAT,
 );
 
 const pythonHighlight = await createHighlighterCore({
@@ -22,20 +24,21 @@ const pythonHighlight = await createHighlighterCore({
 
 <div class="flex flex-col items-center justify-center">
     {
-        files.map((file) => {
+        files ? files.map((file) => {
             const code = pythonHighlight.codeToHtml(file.content, {
                 lang: "python",
                 theme: "nord",
             });
             return (
                 <div class="flex flex-col items-center justify-center w-full p-8">
-                    <p class="text-xl font-semibold">{file.name}</p>
+                    <p class="text-xl font-semibold">{file.name }</p>
                     <div
                         set:html={code}
                         class="grid justify-stretch w-full overflow-scroll text-wrap m-2 rounded-sm border border-gray-500"
                     />
                 </div>
             );
-        })
+        }) : (<p>No files found</p>
+        <Toast success={false} message={{title: "Oops", text: "Something went wrong while fetching files"}} />)
     }
 </div>
