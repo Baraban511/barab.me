@@ -1,7 +1,8 @@
 name = "me"
 main = "./dist/_worker.js/index.js"
 compatibility_date = "2025-03-25"
-compatibility_flags = ["nodejs_compat"]
+preview_urls = true
+workers_dev = true
 
 [assets]
 binding = "ASSETS"
