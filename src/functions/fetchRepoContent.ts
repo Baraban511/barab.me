@@ -4,21 +4,12 @@ export default async function fetchRepoContent(
   path: string,
   token: string,
 ) {
-  const cacheKey = `https://github.com/${owner}/${repo}/${path}`;
-
   const cacheOptions = {
-    cf: { cacheEverything: true, cacheTtl: 86400 }, // Cache pour 24 heures
+    cf: {
+      cacheEverything: true,
+      cacheTtlByStatus: { "200-299": 86400, 404: 1, "500-599": 0 },
+    },
   };
-
-  const cachedResponse = await fetch(cacheKey, {
-    ...cacheOptions,
-    method: "GET",
-  });
-
-  if (cachedResponse && cachedResponse.status === 200) {
-    return await cachedResponse.json();
-  }
-
   const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
   const response = await fetch(url, {
     headers: {
