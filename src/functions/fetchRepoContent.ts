@@ -1,10 +1,8 @@
-const isCloudflareWorker = typeof caches !== "undefined";
-
 export default async function fetchRepoContent(
   owner: string,
   repo: string,
   path: string,
-  token: string
+  token: string,
 ) {
   const cacheKey = `https://github.com/${owner}/${repo}/${path}`;
 

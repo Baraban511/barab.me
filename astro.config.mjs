@@ -4,27 +4,22 @@ import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 import icon from "astro-icon";
 const website = "https://barab.me";
-// https://astro.build/config
 export default defineConfig({
   site: website,
   prefetch: true,
   output: "server",
   adapter: cloudflare({
     platformProxy: {
-      enabled: false,
+      enabled: true,
     },
-    imageService: "cloudflare",
+    imageService: "passthrough",
   }),
   vite: {
     plugins: [tailwindcss()],
-    build: {
-      minify: false,
-    },
     define: {
       "import.meta.env.BUILD_DATE": JSON.stringify(
-        new Date().toISOString().split("T")[0]
+        new Date().toISOString().split("T")[0],
       ),
-      "process.env": process.env,
     },
   },
   integrations: [
@@ -34,7 +29,6 @@ export default defineConfig({
     }),
     icon({
       include: {
-        // Include only three `mdi` icons in the bundle
         tabler: [
           "xbox-a",
           "xbox-b",
