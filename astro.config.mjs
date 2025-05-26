@@ -31,7 +31,7 @@ export default defineConfig({
     platformProxy: {
       enabled: true,
     },
-    imageService: "compile",
+    imageService: "cloudflare",
   }),
   vite: {
     plugins: [tailwindcss()],
