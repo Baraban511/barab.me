@@ -4,8 +4,9 @@
   "version": "3.0.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "wrangler types && astro build",
-    "preview": "wrangler types && astro check && astro build && wrangler dev",
+    "build": "astro build",
+    "preview": "bun check && astro build && wrangler dev",
+    "check": "wrangler types && astro check",
     "astro": "astro"
   },
   "dependencies": {
