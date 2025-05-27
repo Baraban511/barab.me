@@ -1,8 +1,16 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
-const matches = import.meta.glob("./*.md", { eager: true });
-const posts = Object.values(matches);
+import type { MarkdownInstance } from 'astro';
+interface Frontmatter {
+    title: string;
+    pubDate: string;
+    description: string;
+    icon:string;
+    lang: string;
+}
+
+const posts = Object.values(import.meta.glob<MarkdownInstance<Frontmatter>>('./*.md', { eager: true }));
 ---
 
 <Layout title="Blog">

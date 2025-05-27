@@ -1,4 +1,3 @@
 ---
-const { email } = Astro.params;
-return Astro.redirect(`mailto:${email}?subject=Contact`);
+return Astro.redirect(`mailto:${Astro.params.email}?subject=Contact`);
 ---

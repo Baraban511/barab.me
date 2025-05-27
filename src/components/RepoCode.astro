@@ -6,6 +6,7 @@ import nord from "shiki/themes/nord.mjs";
 import { createHighlighterCore } from "shiki/core";
 import {loadWasm, createOnigurumaEngine} from "shiki/engine/oniguruma";
 import { GITHUB_PAT } from "astro:env/server";
+// @ts-ignore
 await loadWasm(import('shiki/onig.wasm'));
 
 var files = await fetchRepoContent(

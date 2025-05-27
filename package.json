@@ -3,19 +3,17 @@
   "type": "module",
   "version": "3.0.0",
   "scripts": {
-    "dev": "wrangler types && astro dev",
-    "start": "wrangler types && astro dev",
-    "build": "wrangler types && astro check && astro build",
-    "preview": "astro build && wrangler dev",
+    "dev": "astro dev",
+    "build": "wrangler types && astro build",
+    "preview": "wrangler types && astro check && astro build && wrangler dev",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/cloudflare": "^12.5.3",
     "@astrojs/sitemap": "^3.4.0",
-    "@cloudflare/vite-plugin": "^1.2.4",
     "@fontsource-variable/noto-sans": "^5.2.7",
-    "@splinetool/runtime": "^1.9.96",
+    "@splinetool/runtime": "^1.9.97",
     "@tailwindcss/vite": "^4.1.7",
     "astro": "^5.8.0",
     "astro-icon": "^1.1.5",
@@ -27,10 +25,10 @@
     "@iconify-json/file-icons": "^1.2.1",
     "@iconify-json/line-md": "^1.2.8",
     "@iconify-json/mdi": "^1.2.3",
-    "@iconify-json/simple-icons": "^1.2.35",
+    "@iconify-json/simple-icons": "^1.2.36",
     "@iconify-json/tabler": "^1.2.18",
     "@tailwindcss/forms": "^0.5.10",
     "shiki": "^3.4.2",
-    "wrangler": "^4.16.1"
+    "wrangler": "^4.17.0"
   }
 }
