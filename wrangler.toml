@@ -1,6 +1,6 @@
 name = "me"
 main = "./dist/_worker.js/index.js"
-compatibility_flags = ["nodejs_compat"]
+compatibility_flags = ["nodejs_compat", "global_fetch_strictly_public"]
 compatibility_date = "2025-03-25"
 preview_urls = true
 workers_dev = true
