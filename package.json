@@ -3,12 +3,11 @@
   "type": "module",
   "version": "3.0.0",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
+    "dev": "wrangler types && astro dev",
+    "start": "wrangler types && astro dev",
+    "build": "wrangler types && astro check && astro build",
     "preview": "astro build && wrangler dev",
-    "astro": "astro",
-    "cf-typegen": "wrangler types"
+    "astro": "astro"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",

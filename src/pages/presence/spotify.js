@@ -1,12 +1,12 @@
+import { USER_ID } from "astro:env/server";
 export async function GET() {
-  const userId = import.meta.env.USER_ID;
-  var presence = await fetch("https://api.statusbadges.me/presence/" + userId);
+  var presence = await fetch("https://api.statusbadges.me/presence/" + USER_ID);
   presence = await presence.json();
   var activities = presence.activities;
   for (var i = 0; i < activities.length; i++) {
     if (activities[i].name == "Spotify") {
       let currentSong = await fetch(
-        "https://api.statusbadges.me/openspotify/" + userId
+        "https://api.statusbadges.me/openspotify/" + USER_ID,
       );
       activities[i].songURL = currentSong.url;
       return new Response(JSON.stringify(activities[i]), {

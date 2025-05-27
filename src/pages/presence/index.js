@@ -1,6 +1,6 @@
+import { USER_ID } from "astro:env/server";
 export async function GET() {
-  const userId = import.meta.env.USER_ID;
-  var presence = await fetch("https://api.statusbadges.me/presence/" + userId);
+  var presence = await fetch("https://api.statusbadges.me/presence/" + USER_ID);
   presence = await presence.json();
   var status = presence.status;
   return new Response(status, {

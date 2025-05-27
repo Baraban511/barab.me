@@ -9,7 +9,6 @@
       "@assets/*": ["src/assets/*"],
       "@layouts/*": ["src/layouts/*"],
       "@functions/*": ["src/functions/*"]
-    },
-    "types": ["@cloudflare/workers-types/2023-07-01"]
+    }
   }
 }
