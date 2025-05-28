@@ -2,6 +2,11 @@ name = "me"
 main = "./dist/_worker.js/index.js"
 compatibility_flags = ["nodejs_compat", "global_fetch_strictly_public"]
 compatibility_date = "2025-03-25"
+secrets_store_secrets = [
+    { binding = "RESEND_KEY", store_id = "0d077a381c434adeaaefd6d1f5da3723", secret_name = "RESEND_KEY" },
+    { binding = "DISCORD_ID", store_id = "0d077a381c434adeaaefd6d1f5da3723", secret_name = "DISCORD_ID" },
+    { binding = "EMAIL_TO", store_id = "0d077a381c434adeaaefd6d1f5da3723", secret_name = "EMAIL_TO" },
+]
 preview_urls = true
 workers_dev = true
 

@@ -1,6 +1,8 @@
-import { USER_ID } from "astro:env/server";
+import { DISCORD_ID } from "astro:env/server";
 export async function GET() {
-  var presence = await fetch("https://api.statusbadges.me/presence/" + USER_ID);
+  var presence = await fetch(
+    "https://api.statusbadges.me/presence/" + DISCORD_ID,
+  );
   presence = await presence.json();
   var activities = presence.activities;
   for (var i = 0; i < activities.length; i++) {

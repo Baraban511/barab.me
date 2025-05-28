@@ -292,7 +292,7 @@
 
     "@shikijs/vscode-textmate": ["@shikijs/vscode-textmate@10.0.2", "", {}, "sha512-83yeghZ2xxin3Nj8z1NMd/NCuca+gsYXswywDy5bHvwlWL8tpTQmzGeUuHd9FC3E/SBEMvzJRwWEOz5gGes9Qg=="],
 
-    "@splinetool/runtime": ["@splinetool/runtime@1.9.97", "", { "dependencies": { "on-change": "^4.0.0", "semver-compare": "^1.0.0" } }, "sha512-rRZK65GmN0riVn58Pd7c9/xKwWJngp4XzyQHn0/9avWiP3RNXD4qlDryAfWCxg39PiXjGtL8DhbV6HofxIxfRQ=="],
+    "@splinetool/runtime": ["@splinetool/runtime@1.9.98", "", { "dependencies": { "on-change": "^4.0.0", "semver-compare": "^1.0.0" } }, "sha512-mfueR1yWJokZUUJzvXv5Qf/FVYHkRQb3yW4/fspIC/zkLlDKpVDLArm3/D/4dK0SG0vgEsFhlOZG55ZtnBB86g=="],
 
     "@swc/helpers": ["@swc/helpers@0.5.17", "", { "dependencies": { "tslib": "^2.8.0" } }, "sha512-5IKx/Y13RsYd+sauPb2x+U/xZikHjolzfuDgTAl/Tdf3Q8rslRvC19NKDLgAJQ6wsqADk10ntlv08nPFw/gO/A=="],
 

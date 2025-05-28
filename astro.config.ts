@@ -20,7 +20,7 @@ export default defineConfig({
         access: "secret",
         optional: false,
       }),
-      USER_ID: envField.string({
+      DISCORD_ID: envField.string({
         context: "server",
         access: "secret",
         optional: false,
