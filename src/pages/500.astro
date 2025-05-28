@@ -1,0 +1,15 @@
+---
+interface Props {
+  error: unknown;
+}
+import Layout from "@layouts/Global.astro";
+import Home from "@components/Home.astro";
+import Toast from "@components/Toast.astro"
+
+const { error } = Astro.props;
+---
+<div>{}</div>
+<Layout title="Home- barab." active="/">
+	<Home/>
+<Toast success={false} message={{title: "Error 500", text: error instanceof Error ? error.message : "Unknown error"}} />
+</Layout>

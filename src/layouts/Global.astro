@@ -18,7 +18,7 @@ const { title, active } = Astro.props;
 			href={notoSans}
 			crossorigin="anonymous"
 		/>
-		<title>barab.{title ? " - " + title : ""}</title>
+		<title>{title ? title : "barab."}</title>
 		<meta name="title" content="barab. - Developer" />
 		<meta
 			name="description"
@@ -28,10 +28,10 @@ const { title, active } = Astro.props;
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content="barab." />
 		<meta property="og:url" content="https://barab.me" />
-		<meta property="og:image" content="https://barab.pages.dev/logo.png" />
+		<meta property="og:image" content="https://barab.me/logo.png" />
 		<meta
 			property="og:description"
-			content="My website made by my hands and brain (+ some docs)"
+			content="I'm barab, an in learning developer. This website is my portfolio."
 		/>
 		<link rel="sitemap" href="/sitemap-index.xml" />
 	</head>

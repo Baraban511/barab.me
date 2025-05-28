@@ -15,11 +15,6 @@ export default defineConfig({
         access: "secret",
         optional: false,
       }),
-      GITHUB_PAT: envField.string({
-        context: "server",
-        access: "secret",
-        optional: false,
-      }),
       EMAIL_TO: envField.string({
         context: "server",
         access: "secret",

@@ -1,5 +1,5 @@
 ---
-import Layout from "@layouts/Layout.astro";
+import Layout from "@layouts/Global.astro";
 import { Icon } from "astro-icon/components";
 import type { MarkdownInstance } from 'astro';
 interface Frontmatter {
@@ -13,7 +13,7 @@ interface Frontmatter {
 const posts = Object.values(import.meta.glob<MarkdownInstance<Frontmatter>>('./*.md', { eager: true }));
 ---
 
-<Layout title="Blog">
+<Layout title="Blog - barab.">
     <div
         class="flex flex-wrap items-center justify-center gap-4 bg-[#008080] p-4"
     >

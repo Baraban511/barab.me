@@ -1,5 +1,5 @@
 ---
-import Layout from "@layouts/Layout.astro";
+import Layout from "@layouts/Global.astro";
 import Toast from "@components/Toast.astro"
 import { actions, isInputError } from "astro:actions";
 const result = Astro.getActionResult(actions.send);
@@ -7,7 +7,7 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
 result?.error ? console.log(result.error) : ""
 ---
 
-<Layout title="Contact">
+<Layout title="Contact - barab.">
     <div class="flex flex-col w-full items-center bg-[#008080] p-5">
     <div class="flex flex-col sm:w-3/4 w-full gap-3">
             <form
