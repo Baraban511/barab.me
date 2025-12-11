@@ -3,13 +3,16 @@ import "@assets/styles/base.css";
 import "@fontsource-variable/noto-sans";
 import notoSans from "@fontsource-variable/noto-sans/files/noto-sans-latin-wght-normal.woff2?url";
 import Header from "@components/Header.astro";
+import { ClientRouter } from "astro:transitions";
 import Footer from "@components/Footer.astro";
 const { title, active } = Astro.props;
 ---
 
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth" transition:animate="fade">
 	<head>
 		<meta charset="utf-8" />
+
+		<ClientRouter />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link
 			rel="preload"

@@ -1,8 +1,7 @@
-import { env } from "cloudflare:workers";
 export async function GET() {
   try {
     var presence = await fetch(
-      "https://api.statusbadges.me/presence/" + (await env.DISCORD_ID.get()),
+      "https://api.statusbadges.me/presence/" + import.meta.env.DISCORD_ID,
     );
     presence = await presence.json();
     var activities = presence.activities;
@@ -10,7 +9,7 @@ export async function GET() {
       if (activities[i].name == "Spotify") {
         let currentSong = await fetch(
           "https://api.statusbadges.me/openspotify/" +
-            (await env.DISCORD_ID.get()),
+          import.meta.env.DISCORD_ID,
         );
         activities[i].songURL = currentSong.url;
         return new Response(JSON.stringify(activities[i]), {

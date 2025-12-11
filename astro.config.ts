@@ -1,6 +1,5 @@
-import { defineConfig, envField } from "astro/config";
-import astro_cloudflare from "@astrojs/cloudflare";
-import { cloudflare } from "@cloudflare/vite-plugin";
+import { defineConfig } from "astro/config";
+import cloudflare from "@astrojs/cloudflare";
 import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 import icon from "astro-icon";
@@ -9,23 +8,34 @@ export default defineConfig({
   site: website,
   prefetch: true,
   output: "server",
-  env: {
-    // schema: {
-    //   EMAIL_TO: envField.string({
-    //     context: "server",
-    //     access: "secret",
-    //     optional: false,
-    //   }),
-    //   DISCORD_ID: envField.number({
-    //     context: "server",
-    //     access: "secret",
-    //     optional: false,
-    //   }),
-    // },
-  },
-  adapter: astro_cloudflare({
+  // env: {
+  //   schema: {
+  //     EMAIL_TO: envField.string({
+  //       context: "server",
+  //       access: "secret",
+  //       optional: false,
+  //     }),
+  //     DISCORD_ID: envField.number({
+  //       context: "server",
+  //       access: "secret",
+  //       optional: false,
+  //     }),
+  //     RESEND_KEY: envField.string({
+  //       context: "server",
+  //       access: "secret",
+  //       optional: false,
+  //     }),
+  //     FOOTER_NOTE: envField.string({
+  //       context: "client",
+  //       access: "public",
+  //       optional: false,
+  //     }),
+  //   },
+  // },
+  adapter: cloudflare({
     platformProxy: {
       enabled: true,
+      configPath: 'wrangler.json',
     },
     imageService: "compile",
   }),

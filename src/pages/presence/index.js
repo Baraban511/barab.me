@@ -1,8 +1,8 @@
-import { env } from "cloudflare:workers";
+//import { DISCORD_ID } from "astro:env/server";
 export async function GET() {
   try {
     var presence = await fetch(
-      "https://api.statusbadges.me/presence/" + (await env.DISCORD_ID.get()),
+      "https://api.statusbadges.me/presence/" + import.meta.env.DISCORD_ID,
     );
     presence = await presence.json();
     var status = presence.status;
