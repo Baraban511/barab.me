@@ -6,8 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "check": "wrangler types && astro check",
-    "preview": "npm run check && astro build && wrangler dev",
-    "deploy": "npm run check && astro build && wrangler deploy",
+    "preview": "bun check && astro build && wrangler dev",
+    "deploy": "bun check && astro build && wrangler deploy",
     "astro": "astro",
     "generate-types": "wrangler types"
   },
@@ -17,15 +17,15 @@
     "@astrojs/sitemap": "^3.7.2",
     "@fontsource-variable/noto-sans": "^5.2.10",
     "@splinetool/runtime": "^1.12.90",
-    "@tailwindcss/vite": "^4",
+    "@tailwindcss/vite": "^4.2.4",
     "astro": "^6.2.1",
-    "resend": "^6",
-    "tailwindcss": "^4",
-    "typescript": "^6"
+    "resend": "^6.12.2",
+    "tailwindcss": "^4.2.4",
+    "typescript": "^6.0.3"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.11",
-    "vite": "^7",
+    "vite": "^7.3.2",
     "wrangler": "^4.87.0"
   }
 }
