@@ -1,8 +1,8 @@
-//import { DISCORD_ID } from "astro:env/server";
+import { DISCORD_ID } from "astro:env/server";
 export async function GET() {
   try {
     var presence = await fetch(
-      "https://api.statusbadges.me/presence/" + import.meta.env.DISCORD_ID,
+      "https://api.statusbadges.me/presence/" + DISCORD_ID,
     );
     presence = await presence.json();
     var status = presence.status;
@@ -13,7 +13,7 @@ export async function GET() {
     });
   } catch (error) {
     console.error("Error fetching presence status:", error);
-    return new Response(false, {
+    return new Response("offline", {
       headers: {
         "Access-Control-Allow-Origin": "*",
       },

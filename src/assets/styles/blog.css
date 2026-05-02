@@ -1,4 +1,4 @@
-@reference "./base.css";
+@import "./base.css";
 #blog-content a {
   @apply text-[#008080];
 }

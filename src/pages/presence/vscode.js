@@ -1,7 +1,8 @@
+import { DISCORD_ID } from "astro:env/server";
 export async function GET() {
   try {
     var presence = await fetch(
-      "https://api.statusbadges.me/presence/" + import.meta.env.DISCORD_ID,
+      "https://api.statusbadges.me/presence/" + DISCORD_ID,
     );
     presence = await presence.json();
     var activities = presence.activities;

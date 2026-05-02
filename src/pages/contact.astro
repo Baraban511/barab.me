@@ -2,7 +2,7 @@
 import Layout from "@layouts/Global.astro";
 import Toast from "@components/Toast.astro";
 import { actions, isInputError } from "astro:actions";
-
+import Footer from "@components/Footer.astro"
 const result = Astro.getActionResult(actions.send);
 const inputErrors = isInputError(result?.error) ? result.error.fields : {};
 ---
@@ -82,4 +82,5 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
             />
         )
     }
+    <Footer />
 </Layout>

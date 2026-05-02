@@ -1,10 +1,9 @@
 ---
 import "@assets/styles/base.css";
-import "@fontsource-variable/noto-sans";
-import notoSans from "@fontsource-variable/noto-sans/files/noto-sans-latin-wght-normal.woff2?url";
+import "@assets/styles/icons.css";
+import { Font } from "astro:assets";
 import Header from "@components/Header.astro";
 import { ClientRouter } from "astro:transitions";
-import Footer from "@components/Footer.astro";
 const { title, active } = Astro.props;
 ---
 
@@ -14,13 +13,7 @@ const { title, active } = Astro.props;
 
 		<ClientRouter />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link
-			rel="preload"
-			as="font"
-			type="font/woff2"
-			href={notoSans}
-			crossorigin="anonymous"
-		/>
+		<Font cssVariable="--font-noto" preload/>
 		<title>{title ? title : "barab."}</title>
 		<meta name="title" content="barab. - Developer" />
 		<meta
@@ -41,6 +34,5 @@ const { title, active } = Astro.props;
 	<body class="flex flex-col bg-[#fbffee] h-screen">
 		<Header active={active || Astro.url.pathname} />
 		<slot />
-		<Footer />
 	</body>
 </html>
