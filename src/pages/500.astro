@@ -5,6 +5,7 @@ interface Props {
 import Layout from "@layouts/Global.astro";
 import Home from "@components/Home.astro";
 import Toast from "@components/Toast.astro"
+import Footer from "@components/Footer.astro"
 
 const { error } = Astro.props;
 ---
@@ -12,4 +13,5 @@ const { error } = Astro.props;
 <Layout title="Home- barab." active="/">
 	<Home/>
 <Toast success={false} message={{title: "Error 500", text: error instanceof Error ? error.message : "Unknown error"}} />
+<Footer />
 </Layout>

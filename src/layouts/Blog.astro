@@ -2,6 +2,7 @@
 import Layout from "@layouts/Global.astro";
 import "@assets/styles/blog.css";
 const { frontmatter } = Astro.props;
+import Footer from "@components/Footer.astro"
 ---
 
 <Layout title={frontmatter.title} active="/blog">
@@ -33,4 +34,5 @@ const { frontmatter } = Astro.props;
             crossorigin="anonymous"
             async>
     </script>
+    <Footer />
 </Layout>

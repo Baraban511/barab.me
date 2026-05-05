@@ -1,7 +1,6 @@
 ---
 const { success, message } = Astro.props;
 import { Image } from 'astro:assets';
-import { Icon } from "astro-icon/components";
 import thumbsUp from "@assets/images/thumbs-up.png";
 import crossMark from "@assets/images/cross-mark.png"
 ---
@@ -13,14 +12,15 @@ import crossMark from "@assets/images/cross-mark.png"
         <p class="text-lg font-bold">{message.title}</p>
         </div>
 <p>{message.text}</p>
- <button class="absolute top-0 right-0 p-1" id="removeButton"><Icon
-     name={"tabler:circle-dashed-x"}
-     class="hover:text-[#008080] w-6 h-6"
+ <button class="absolute top-0 right-0 p-1" id="removeButton"><span
+     class="tabler--circle-dashed-x hover:text-[#008080] w-6 h-6"
  /></button>
 </div>
 <script>
   const button = document.getElementById('removeButton');
+  button &&
     button.addEventListener('click', () => {
-      document.getElementById("toast").classList.add("hidden");
+      const toast = document.getElementById("toast");
+      toast && toast.classList.add("hidden");
     });
 </script>

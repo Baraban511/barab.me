@@ -1,6 +1,6 @@
 ---
 import Layout from "@layouts/Global.astro";
-import { Icon } from "astro-icon/components";
+import Footer from "@components/Footer.astro"
 import type { MarkdownInstance } from 'astro';
 interface Frontmatter {
     title: string;
@@ -23,10 +23,9 @@ const posts = Object.values(import.meta.glob<MarkdownInstance<Frontmatter>>('./*
                     <div class="flex flex-col items-center bg-[#fbffee] p-4 gap-4 rounded-md">
                         <div class="flex gap-4 items-center justify-start">
                             <div class="bg-[#008080] inline-block p-3 rounded-full text-white">
-                                <Icon
-                                    name={post.frontmatter.icon}
-                                    class="w-10 h-10"
-                                />
+                                <span
+                                    class={post.frontmatter.icon + " w-10 h-10"}
+                                ></span>
                             </div>
                             <h2 class="text-2xl font-bold">
                                 {post.frontmatter.title}
@@ -51,4 +50,5 @@ const posts = Object.values(import.meta.glob<MarkdownInstance<Frontmatter>>('./*
             ))
         }
     </div>
+    <Footer />
 </Layout>
