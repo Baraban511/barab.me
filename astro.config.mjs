@@ -56,13 +56,13 @@ export default defineConfig({
         context: "server",
         access: "secret",
         optional: false,
-        default: "1x0000000000000000000000000000000AA", // Fail : 2x0000000000000000000000000000000AA
+        // default: "1x0000000000000000000000000000000AA", // Fail : 2x0000000000000000000000000000000AA
       }),
       TURNSTILE_CLIENT: envField.string({
         context: "client",
         access: "public",
         optional: false,
-        default: "1x00000000000000000000AA", // Fail : 3x00000000000000000000FF
+        // default: "1x00000000000000000000AA", // Fail : 3x00000000000000000000FF
       }),
       BUILD_DATE: envField.string({
         context: "client",
