@@ -1,16 +1,18 @@
 ---
 import Layout from "@layouts/Global.astro";
-import Footer from "@components/Footer.astro"
-import type { MarkdownInstance } from 'astro';
+import Footer from "@components/Footer.astro";
+import type { MarkdownInstance } from "astro";
 interface Frontmatter {
     title: string;
     pubDate: string;
     description: string;
-    icon:string;
+    icon: string;
     lang: string;
 }
 
-const posts = Object.values(import.meta.glob<MarkdownInstance<Frontmatter>>('./*.md', { eager: true }));
+const posts = Object.values(
+    import.meta.glob<MarkdownInstance<Frontmatter>>("./*.md", { eager: true }),
+);
 ---
 
 <Layout title="Blog - barab.">
@@ -25,7 +27,7 @@ const posts = Object.values(import.meta.glob<MarkdownInstance<Frontmatter>>('./*
                             <div class="bg-[#008080] inline-block p-3 rounded-full text-white">
                                 <span
                                     class={post.frontmatter.icon + " w-10 h-10"}
-                                ></span>
+                                />
                             </div>
                             <h2 class="text-2xl font-bold">
                                 {post.frontmatter.title}

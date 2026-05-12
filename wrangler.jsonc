@@ -9,9 +9,9 @@
 	"workers_dev": true,
 	"assets": {
 		"directory": "./dist",
-		"binding": "ASSETS",
+		"binding": "ASSETS"
 	},
 	"observability": {
-		"enabled": true,
-	},
+		"enabled": true
+	}
 }
