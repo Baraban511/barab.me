@@ -1,9 +1,4 @@
-import {
-  defineConfig,
-  fontProviders,
-  svgoOptimizer,
-  envField,
-} from "astro/config";
+import { defineConfig, fontProviders, envField } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import cloudflare from "@astrojs/cloudflare";
 import sitemap from "@astrojs/sitemap";
@@ -14,18 +9,12 @@ export default defineConfig({
   output: "server",
   fonts: [
     {
+      provider: fontProviders.npm(),
       name: "Noto Sans",
       cssVariable: "--font-noto",
-      provider: fontProviders.fontsource(),
       fallbacks: ["monospace"],
     },
   ],
-  experimental: {
-    svgOptimizer: svgoOptimizer(),
-    queuedRendering: {
-      enabled: true,
-    },
-  },
   env: {
     schema: {
       EMAIL_TO: envField.string({
@@ -60,7 +49,7 @@ export default defineConfig({
       }),
     },
   },
-  adapter: cloudflare({}),
+  adapter: cloudflare(),
   vite: {
     plugins: [tailwindcss()],
   },

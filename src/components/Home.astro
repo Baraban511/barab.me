@@ -1,27 +1,64 @@
 ---
-import Projects from "@components/Projects.astro";
 import { Image } from "astro:assets";
 import barabLogoGreen from "@assets/images/barab-logo-green.png";
 import wavingHand from "@assets/images/waving-hand.png";
+
+type SectionModule = {
+    default: any;
+    position?: number;
+};
+const modules = import.meta.glob<SectionModule>("./projects/*.astro", {
+    eager: true,
+});
+
+const sections = Object.values(modules)
+    .sort((a, b) => (a.position ?? 999) - (b.position ?? 999))
+    .map((module) => module.default);
+const skills = [
+    "tabler--brand-javascript",
+    "tabler--brand-bulma",
+    "tabler--brand-nodejs",
+    "tabler--brand-npm",
+    "tabler--brand-debian",
+    "tabler--brand-deno",
+    "tabler--brand-vscode",
+    "tabler--brand-spotify",
+    "tabler--lemon-2",
+    "mdi--arch",
+];
 ---
 
 <div class="mx-auto bg-[#008080] w-full">
-	<div
-		class="max-w-(--breakpoint-lg) mx-auto flex flex-col items-center justify-center gap-4"
-	>
-		<div class="flex items-center flex-col text-center gap-4 p-2">
-			<div class="flex items-center gap-4">
-				<Image src={wavingHand} alt="Waving Hand" class="w-16 h-16" />
-				<p class="text-4xl font-bold select-none">
-					Welcome on my website
-				</p>
-			</div>
-			<p class="text-xl font-medium select-none">
-				I'm barab, a french developer. I'm learning code and english.
-				Here are my projects :
-			</p>
-		</div>
-		<Image src={barabLogoGreen} alt="barab. logo" width="400"/>
-	</div>
-	<Projects />
+    <div
+        class="max-w-(--breakpoint-lg) mx-auto flex flex-col items-center justify-center gap-4"
+    >
+        <div class="flex items-center flex-col text-center gap-4 p-2">
+            <div class="flex items-center gap-4">
+                <Image src={wavingHand} alt="Waving Hand" class="w-16 h-16" />
+                <p class="text-4xl font-bold select-none">
+                    Welcome on my website
+                </p>
+            </div>
+            <p class="text-xl font-medium select-none">
+                I'm barab, a french developer. I'm learning code and english.
+                Here are my projects :
+            </p>
+        </div>
+        <Image src={barabLogoGreen} alt="barab. logo" width="400" />
+    </div>
+    <div class="flex flex-wrap gap-8 bg-[#fbffee] p-8">
+        {sections.map((Component) => <Component />)}
+        <div class="text-center w-full">
+            <p class="text-2xl font-bold px-2">
+                I've also used or I'm still using:
+            </p>
+            <div class="flex flex-wrap items-center justify-center m-4 gap-4">
+                {
+                    skills.map((skill) => (
+                        <span class={skill + " hover:text-[#008080] w-6 h-6"} />
+                    ))
+                }
+            </div>
+        </div>
+    </div>
 </div>
