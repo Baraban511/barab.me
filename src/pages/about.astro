@@ -19,19 +19,35 @@ import Loading from "@components/Loading.astro";
                 mode: "no-cors",
             })
             .then(async () => {
-                var status = await (await fetch("/presence")).text();
-                spline.setVariable("status", status);
-                var spotify = await (await fetch("/presence/spotify")).json();
-                if (spotify) {
-                    spline.setVariable(
-                        "music",
-                        "listening " + (spotify as any).details,
-                    );
+                const loadingEl = document.getElementById("loading");
+                if (loadingEl) loadingEl.remove();
+
+                try {
+                    var status = await (await fetch("/presence")).text();
+                    spline.setVariable("status", status);
+                } catch (e) {
+                    console.error("Failed to fetch presence status:", e);
                 }
 
-                var vscode = await (await fetch("/presence/vscode")).json();
-                if (vscode) {
-                    spline.setVariable("code", (vscode as any).details);
+                try {
+                    var spotify = await (await fetch("/presence/spotify")).json();
+                    if (spotify) {
+                        spline.setVariable(
+                            "music",
+                            "listening " + (spotify as any).details,
+                        );
+                    }
+                } catch (e) {
+                    console.error("Failed to fetch spotify status:", e);
+                }
+
+                try {
+                    var vscode = await (await fetch("/presence/vscode")).json();
+                    if (vscode) {
+                        spline.setVariable("code", (vscode as any).details);
+                    }
+                } catch (e) {
+                    console.error("Failed to fetch vscode status:", e);
                 }
             });
     </script>
